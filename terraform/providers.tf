@@ -7,8 +7,8 @@ terraform {
   }
 
   backend "gcs" {
-    bucket  = "comet-test-tf-state"
-    prefix  = "terraform/state"
+    bucket = "comet-test-tf-state"
+    prefix = "terraform/state"
   }
 }
 

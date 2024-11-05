@@ -1,0 +1,20 @@
+name: Helm install
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - chart/**
+
+jobs:
+  setup-helm:
+    runs-on: ubuntu-latest
+    name: Install Helm
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: azure/setup-helm@v4.2.0
+        id: install
