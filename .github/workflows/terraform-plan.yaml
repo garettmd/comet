@@ -39,6 +39,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Test
+        run: 'pwd && echo " " && ls -l'
+
       - name: terraform plan
         uses: dflook/terraform-plan@v1
         with:
