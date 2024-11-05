@@ -29,5 +29,14 @@ jobs:
           cluster_name: 'main-cluster'
           location: 'us-central1'
 
-      - uses: azure/setup-helm@v4.2.0
+      - name: Install Helm
+        uses: azure/setup-helm@v4.2.0
         id: install
+
+      - name: Deploy Helm chart
+        run: |
+          helm upgrade --install \
+            --namespace default \
+            --create-namespace \
+            --wait \
+            comet chart/comet
