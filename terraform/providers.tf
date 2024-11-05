@@ -5,6 +5,11 @@ terraform {
       version = ">= 4.0.0"
     }
   }
+
+  backend "gcs" {
+    bucket  = "comet-test-tf-state"
+    prefix  = "terraform/state"
+  }
 }
 
 provider "google" {
