@@ -10,7 +10,7 @@ on:
 jobs:
   setup-helm:
     runs-on: ubuntu-latest
-    name: Install Helm
+    name: Deploy chart
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
