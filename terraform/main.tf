@@ -45,6 +45,7 @@ module "main-nodepool" {
   location     = var.region
   name         = "main-nodepool"
   k8s_labels   = { environment = "dev" }
+  tags         = ["allow-egress"]
   service_account = {
     create       = true
     email        = "main-nodepool" # optional
