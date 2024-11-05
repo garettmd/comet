@@ -23,13 +23,14 @@ module "main_cluster" {
       services = "services"
     }
     master_authorized_ranges = {
-      internal-vms = "10.0.0.0/8"
+      internal-vms = "10.0.0.0/8",
+      internet     = "0.0.0.0/0"
     }
     master_ipv4_cidr_block = "192.168.0.0/28"
   }
   max_pods_per_node = 32
   private_cluster_config = {
-    enable_private_endpoint = true
+    enable_private_endpoint = false
     master_global_access    = false
   }
   labels = {
@@ -44,6 +45,7 @@ module "main-nodepool" {
   location     = var.region
   name         = "main-nodepool"
   k8s_labels   = { environment = "dev" }
+  tags         = ["allow-egress"]
   service_account = {
     create       = true
     email        = "main-nodepool" # optional
