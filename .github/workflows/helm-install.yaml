@@ -16,5 +16,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: azure/setup-helm@v4.2.0
+
+      - name: 'Authenticate with Google Cloud'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
+
+      - name: 'Get GKE Credentials' 
+        id: 'get-credentials'
+        uses: 'google-github-actions/get-gke-credentials@v2'
+        with:
+          cluster_name: 'main-cluster'
+          location: 'us-central1'
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4.2.0
         id: install
+
+      - name: Deploy Helm chart
+        run: |
+          helm upgrade --install \
+            --namespace default \
+            --create-namespace \
+            --wait \
+            comet chart/comet
