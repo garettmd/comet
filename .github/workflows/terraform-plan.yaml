@@ -43,3 +43,5 @@ jobs:
         uses: dflook/terraform-plan@v1
         with:
           path: terraform
+          var_file:
+            terraform.auto.tfvars
