@@ -23,3 +23,5 @@ jobs:
         uses: dflook/terraform-apply@v1
         with:
           path: terraform
+          var_file:
+            terraform.auto.tfvars
