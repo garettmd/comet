@@ -47,4 +47,4 @@ jobs:
         with:
           path: terraform
           var_file:
-            ../../terraform/terraform.auto.tfvars
+            ./terraform/terraform.auto.tfvars
