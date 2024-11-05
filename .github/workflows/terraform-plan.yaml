@@ -46,5 +46,6 @@ jobs:
         uses: dflook/terraform-plan@v1
         with:
           path: terraform
-          var_file:
-            ./terraform/terraform.auto.tfvars
+          variables: |
+            project_id = "comet-project-440416"
+            region     = "us-central1"
