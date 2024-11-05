@@ -1,0 +1,13 @@
+name: Helm install
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "chart/**"
+
+- uses: azure/setup-helm@v4.2.0
+  with:
+     version: '<version>' # default is latest (stable)
+  id: install
