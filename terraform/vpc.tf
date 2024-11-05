@@ -21,3 +21,18 @@ module "vpc" {
     },
   ]
 }
+
+module "nat" {
+  source         = "./modules/net-cloudnat"
+  project_id     = var.project_id
+  region         = var.region
+  name           = "default"
+  router_network = module.vpc.network.self_link
+
+}
+
+module "firewall" {
+  source     = "./modules/net-vpc-firewall"
+  project_id = var.project_id
+  network    = module.vpc.network.name
+}
