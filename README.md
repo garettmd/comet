@@ -55,3 +55,5 @@ Open the Pull Request URL provided by the git command output into your browser, 
 6. Check on the progress of the deployment by viewing the latest Actions run for the Helm Install workflow
 
 ![Example showing the latest Actions run of the Helm Install workflow](docs/actions.png)
+
+7. # TODO
